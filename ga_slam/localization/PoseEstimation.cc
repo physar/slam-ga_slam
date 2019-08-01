@@ -70,7 +70,8 @@ void PoseEstimation::predictPose(const Pose& deltaPose) {
 
 void PoseEstimation::fuseImuOrientation(const Pose& imuOrientation) {
     const Eigen::Vector3d translation = getPose().translation();
-    const Eigen::Vector3d angles = getAnglesFromPose(imuOrientation);
+    const Eigen::Vector3d imu_angles = getAnglesFromPose(imuOrientation);
+    const Eigen::Vector3d angles = Eigen::Vector3d(imu_angles.x(),imu_angles.y(),getAnglesFromPose(getPose()).z());
     const Pose newPoseEstimate = createPose(translation, angles);
 
     std::lock_guard<std::mutex> guard(poseMutex_);

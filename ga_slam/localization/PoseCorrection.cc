@@ -137,6 +137,8 @@ bool PoseCorrection::matchMaps(
                 mapXY.y() + matchedPosition.y - currentXY.y(), 0.);
 
         lastCorrectedPose_ = currentPose * correctionDeltaPose;
+
+        std::cout << "Match Found. Correction Delta Pose: " << correctionDeltaPose.translation() << std::endl;
     }
 
     return matchFound;

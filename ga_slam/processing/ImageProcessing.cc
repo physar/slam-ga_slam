@@ -178,6 +178,8 @@ bool ImageProcessing::findBestMatch(
         displayMatchedPosition(sourceInput, templateInput, bestResultMatrix,
                 cv::Point2d(matchedPosition.x, matchedPosition.y));
 
+    std::cout << "GA_SLAM LIB maxValue: " << maxValue << std::endl;
+
     return matchFound;
 }
 

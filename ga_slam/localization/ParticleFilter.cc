@@ -149,11 +149,12 @@ void ParticleFilter::getEstimate(
         double& estimateYaw) const {
     std::lock_guard<std::mutex> guard(particlesMutex_);
 
-    const auto bestParticle = getBestParticle();
+    const auto bestParticle = getBestParticleWeightedSum();
 
     estimateX = bestParticle.x;
     estimateY = bestParticle.y;
     estimateYaw = bestParticle.yaw;
+
 }
 
 Particle ParticleFilter::getBestParticle(void) const {
@@ -161,6 +162,34 @@ Particle ParticleFilter::getBestParticle(void) const {
 
     for (const auto& particle : particles_)
         if (particle.weight > bestParticle.weight) bestParticle = particle;
+
+    return bestParticle;
+}
+
+Particle ParticleFilter::getBestParticleWeightedSum(void) const {
+    double sumWeight = 0.0;
+    Particle bestParticle;
+    bestParticle.x=0.0;
+    bestParticle.y=0.0;
+    bestParticle.yaw=0.0;
+
+    for (const auto& particle : particles_)
+        sumWeight += particle.weight;
+
+    if (sumWeight == 0.0){
+        for (const auto& par : particles_){
+            bestParticle.x += par.x/numParticles_;
+            bestParticle.y += par.y/numParticles_;
+            bestParticle.yaw += par.yaw/numParticles_;
+        }
+    }
+    else {
+        for (const auto& p : particles_){
+            bestParticle.x += p.x*p.weight/sumWeight;
+            bestParticle.y += p.y*p.weight/sumWeight;
+            bestParticle.yaw += p.yaw*p.weight/sumWeight;
+        }
+    }
 
     return bestParticle;
 }

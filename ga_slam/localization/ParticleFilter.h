@@ -145,6 +145,11 @@ class ParticleFilter {
       */
     Particle getBestParticle(void) const;
 
+    /** Returns the sum of all particles weight
+      * @return total sum of particle weights
+      */
+    Particle getBestParticleWeightedSum(void) const;
+
     /** Creates a gaussian distribution and samples one value from it
       * @param[in] mean the mean value of the distribution
       * @param[in] sigma the sigma of the distribution
