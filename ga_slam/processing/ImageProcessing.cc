@@ -172,13 +172,17 @@ bool ImageProcessing::findBestMatch(
     }
 
     const bool matchFound = maxValue > matchAcceptanceThreshold;
-    if (matchFound) matchedPosition = bestPosition;
+    if (matchFound) {
+        matchedPosition = bestPosition;
+        std::cout << "MatchedPosition in Image: " << matchedPosition << std::endl;
+    }
 
     if (displayMatch && matchFound)
         displayMatchedPosition(sourceInput, templateInput, bestResultMatrix,
                 cv::Point2d(matchedPosition.x, matchedPosition.y));
 
-    std::cout << "GA_SLAM LIB maxValue: " << maxValue << std::endl;
+    std::cout << "GA_SLAM::ImageProcessing::findBestMatch: Template Matching Max Correlation Value: " << maxValue << std::endl;
+
 
     return matchFound;
 }

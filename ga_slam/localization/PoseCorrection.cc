@@ -138,7 +138,11 @@ bool PoseCorrection::matchMaps(
 
         lastCorrectedPose_ = currentPose * correctionDeltaPose;
 
-        std::cout << "Match Found. Correction Delta Pose: " << correctionDeltaPose.translation() << std::endl;
+        std::cout << "GA_SLAM::PoseCorrection::matchMaps: Match Found." << std::endl 
+        << "Delta Pose Correction: " << std::endl << correctionDeltaPose.translation() << std::endl
+        << "Global Map Pose: " << std::endl << globalMapPose_.translation() << std::endl
+        << "Current Rover Pose: " << std::endl << currentPose.translation() << std::endl
+        << "Match Position: " << std::endl << matchedPosition << std::endl;
     }
 
     return matchFound;
