@@ -41,9 +41,9 @@ Although the library can be used on other systems, it was validated using:
 
 Required packages:
 * [Eigen 3](http://eigen.tuxfamily.org) (linear algebra calculations)
-* [PCL 1.7](http://pointclouds.org/) (point cloud processing)
-* [OpenCV 2.4](https://opencv.org/) (image processing)
-* [Grid Map Core](https://github.com/ethz-asl/grid_map) (map structure and calculations)
+* [PCL 1.8](http://pointclouds.org/) (point cloud processing)
+* [OpenCV 3.2](https://opencv.org/) (image processing)
+* [Grid Map Core](https://github.com/ANYbotics/grid_map) (map structure and calculations)
 
 Optional packages:
 * [Google Mock](https://github.com/google/googletest/tree/master/googlemock) (testing)
