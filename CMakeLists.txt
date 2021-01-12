@@ -39,8 +39,8 @@ configure_compiler_flags()
 ### Dependencies ###
 ####################
 find_package(Eigen3 REQUIRED)
-find_package(PCL 1.8 REQUIRED)
-find_package(OpenCV 3.2 REQUIRED)
+find_package(PCL REQUIRED)
+find_package(OpenCV REQUIRED)
 find_package(grid_map_core REQUIRED)
 
 #############

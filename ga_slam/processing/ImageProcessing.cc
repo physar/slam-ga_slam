@@ -141,7 +141,7 @@ bool ImageProcessing::findBestMatch(
     replaceNanWithZero(sourceInput);
     replaceNanWithZero(templateInput);
 
-    constexpr int method = CV_TM_CCORR_NORMED;
+    constexpr int method = cv::TM_CCORR_NORMED;
 
     Image warpedTemplate, resultMatrix, bestResultMatrix;
     cv::Point3d bestPosition;
