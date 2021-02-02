@@ -54,8 +54,8 @@ The dependecies listed above can be installed using [this script](https://github
 
 To build the library, run:
 
-    git clone https://github.com/geromidg/GA_SLAM.git
-    cd ga_slam
+    git clone https://github.com/esa-prl/slam-ga_slam.git
+    cd slam-ga_slam
     mkdir build && cd build
     cmake ..
     make
